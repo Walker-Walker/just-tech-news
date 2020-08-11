@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 //create our User model
 class User extends Model {}
@@ -57,9 +57,10 @@ User.init(
         //use underscores instead of camel - Casing (i.e. `comment_text` and not `commentText`)
         underscored: true,
         //make it so our model name stays lowercase in the database
+       
         modelName: 'user'
     }
 );
 
 
-module.exports= User;
+module.exports = User;
