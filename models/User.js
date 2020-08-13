@@ -1,4 +1,4 @@
-const { Model, DataTypes, Sequelize } = require("sequelize");
+const { Model, DataTypes, Sequelize, INTEGER } = require("sequelize");
 const sequelize = require("../config/connection");
 const bcyrpt = require("bcrypt");
 //create our User model
@@ -17,8 +17,11 @@ User.init(
     //TABLE COLUMN DEFINITIONS GO HERE
     //define an id column
     id: {
+      
       //use the special Sequelize DataTypes object provide what type of data it is
       type: DataTypes.INTEGER,
+
+      // defaultValue: 1,
       //this is the eqivalent to SQLs NOT NULL option
       allowNull: false,
       //instruct that htis is the PRimary Key
