@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
+    console.log(req.session);
     Post.findAll({
         attributes: [
             'id',
@@ -38,4 +39,11 @@ router.get('/', (req, res) => {
     // use with template engine for response we say use homepage.handlebars template handlebars is implied
 });
 
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
 module.exports = router;
